@@ -1,4 +1,4 @@
-<a href="https://www.coursera.org/course/interactivepython"><h3>An Introduction to Interactive Programming in Python</h3></a> - <i>Rice University / Fall 2013</i>
+<a href="https://www.coursera.org/course/interactivepython"><h3>An Introduction to Interactive Programming in Python</h3></a><br><i>Rice University / Fall 2013</i>
 <br />
 <hr>
 

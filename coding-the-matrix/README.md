@@ -1,4 +1,4 @@
-<a href="https://www.coursera.org/course/matrix"><h3>Coding the Matrix: Linear Algebra through Computer Science Applications</h3></a> - <i> Brown University / Summer 2013 </i>
+<a href="https://www.coursera.org/course/matrix"><h3>Coding the Matrix: Linear Algebra through Computer Science Applications</h3></a><br><i> Brown University / Summer 2013 </i>
 <br />
 <hr>
 
