@@ -1,5 +1,6 @@
-<a href="https://www.coursera.org/course/interactivepython">An Introduction to Interactive Programming in Python</a> - <i>Rice University / Fall 2013</i>
+<a href="https://www.coursera.org/course/interactivepython"><h3>An Introduction to Interactive Programming in Python</h3></a> - <i>Rice University / Fall 2013</i>
 <br />
+<hr>
 
 <p>The course takes advantage of <a href="http://www.codeskulptor.org">Skullptor</a>, a browser-based Python interpreter.</p>
 
