@@ -11,5 +11,5 @@ def listrange2dict(L):
 
     You can use list2dict or write this from scratch
     """
-    return { x:L[x] for x in range(0,len(L))}
+    return { x:L[x] for x in range(0,len(L)) }
 
