@@ -5,27 +5,17 @@
 
 
 ## Problem 1
-def myFilter(L, num): return [x for x in L if x%num != 0]
+def myFilter(L, num): return [x for x in L if x % num != 0]
 
 
 
 ## Problem 2
 def myLists(L):
-    final = []
-    for x in L:
-        if x > 0:
-            final.append(list(range(1, x+1)))
-        else:
-            final.append([])
-    return final
+    return [list(range(1, x + 1)) if x > 0 else [] for x in L]
 
 ## Problem 3
 def myFunctionComposition(f, g):
-    final = {}
-    for (k,v) in f.items():
-        if v in g.keys():
-            final[k] = g[v]
-    return final
+    return {x:g[f[x]] for x in f if x in f[x] in g}
 
 
 ## Problem 4
