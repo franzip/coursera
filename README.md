@@ -16,6 +16,8 @@
 		<li><a href="https://www.coursera.org/course/matrix">Coding the Matrix: Linear Algebra through Computer Science Applications</a> - <i> Brown University / Summer 2013 </i></li>
 		<li><a href="https://www.coursera.org/course/interactivepython">An Introduction to Interactive Programming in Python</a> - <i>Rice University / Fall 2013</i>
 		</li>
+		<li><a href="https://www.coursera.org/course/webapplications">Web Application Architectures</a> - <i>University of New Mexico / Spring 2014</i>
+		</li>
 	</ul>
 </div>
 
