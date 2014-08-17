@@ -1,4 +1,4 @@
-<a href="https://www.coursera.org/course/matrix"><h3>Coding the Matrix: Linear Algebra through Computer Science Applications</h3></a>
+<a href="https://www.coursera.org/course/matrix" target="_blank"><h3>Coding the Matrix: Linear Algebra through Computer Science Applications</h3></a>
 <h4><i>Brown University / Summer 2013</i></h4>
 <hr>
 <p>The course uses Python 3.3.2.</p>
