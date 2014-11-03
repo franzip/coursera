@@ -18,6 +18,8 @@
 		</li>
 		<li><a href="https://www.coursera.org/course/webapplications" target="_blank">Web Application Architectures</a> - <i>University of New Mexico / Spring 2014</i>
 		</li>
+        <li><a href="https://www.coursera.org/course/progfun" target="_blank">Functional Programming Principles in Scala</a> - <i>École Polytechnique Fédérale de Lausanne</i>
+        </li>
 	</ul>
 </div>
 
