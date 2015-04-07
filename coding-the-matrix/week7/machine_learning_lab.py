@@ -1,8 +1,13 @@
+# version code 0672c0a36066+
+coursera = 1
+# Please fill out this stencil and submit using the provided submission script.
+
+import sys, os, re
+sys.path.append(re.sub('week\d$', 'lib', os.getcwd()))
 from mat import *
 from vec import *
 from cancer_data import *
 
-A, b = read_training_data('train.data')
 
 ## Task 1 ##
 def signum(u):
@@ -17,13 +22,7 @@ def signum(u):
         >>> signum(Vec({1,2,3},{1:2, 2:-1})) == Vec({1,2,3},{1:1,2:-1,3:1})
         True
     '''
-    final = Vec(u.D, {})
-    for x in u.D:
-        if getitem(u,x) >= 0:
-            final.f[x] = 1
-        else:
-            final.f[x] = -1
-    return final
+    return Vec(u.D, {x: 1 if u[x] >= 0 else -1 for x in u.D})
 
 ## Task 2 ##
 def fraction_wrong(A, b, w):
@@ -34,11 +33,16 @@ def fraction_wrong(A, b, w):
         - w: hypothesis Vec
     Output:
         - Fraction (as a decimal in [0,1]) of vectors incorrectly
-          classified by w 
+          classified by w
+    Example:
+        >>> A = Mat(({'a','b','c'},{'A','B'}), {('a','A'):-4, ('a','B'):3, ('b','A'):1, ('b','B'):8, ('c','A'):5, ('c','B'):2})
+        >>> b = Vec({'a','b','c'}, {'a':1, 'b':-1,'c':1})
+        >>> w = Vec({'A','B'}, {'A':1, 'B':-2})
+        >>> fraction_wrong(A, b, w)
+        0.3333333333333333
     '''
-    temp = A * w
-    temp = signum(temp)
-    return sum([1 for i in temp.D if temp[i] != b[i]]) / len(A.D[1]) 
+    v = signum(A*w)
+    return sum([1 for x in b.D if b[x] != v[x]]) / len(b.D)
 
 ## Task 3 ##
 def loss(A, b, w):
@@ -49,9 +53,15 @@ def loss(A, b, w):
         - w: hypothesis Vec
     Output:
         - Value of loss function at w for training data
+    Example:
+        >>> A = Mat(({'a','b','c'},{'A','B'}), {('a','A'):-4, ('a','B'):3, ('b','A'):1, ('b','B'):8, ('c','A'):5, ('c','B'):2})
+        >>> b = Vec({'a','b','c'}, {'a':1, 'b':-1,'c':1})
+        >>> w = Vec({'A','B'}, {'A':1, 'B':-2})
+        >>> loss(A, b, w)
+        317
     '''
-    temp = A * w
-    return sum((temp[i] - temp[i]) ** 2 for i in temp.D)
+    diff_vec = (A * w) - b
+    return sum(map(lambda x: x**2, [diff_vec[y] for y in b.D]))
 
 ## Task 4 ##
 def find_grad(A, b, w):
@@ -62,8 +72,14 @@ def find_grad(A, b, w):
         - w: hypothesis Vec
     Output:
         - Value of the gradient function at w
+    Example:
+        >>> A = Mat(({'a','b','c'},{'A','B'}), {('a','A'):-4, ('a','B'):3, ('b','A'):1, ('b','B'):8, ('c','A'):5, ('c','B'):2})
+        >>> b = Vec({'a','b','c'}, {'a':1, 'b':-1,'c':1})
+        >>> w = Vec({'A','B'}, {'A':1, 'B':-2})
+        >>> find_grad(A, b, w) == Vec({'B', 'A'},{'B': -290, 'A': 60})
+        True
     '''
-    return 2 * (A * w - b) * A
+    return 2 * ((A * w) - b) * A
 
 ## Task 5 ##
 def gradient_descent_step(A, b, w, sigma):
@@ -76,6 +92,30 @@ def gradient_descent_step(A, b, w, sigma):
     Output:
         - The vector w' resulting from 1 iteration of gradient descent
           starting from w and moving sigma.
+    Example:
+        >>> A = Mat(({'a','b','c'},{'A','B'}), {('a','A'):-4, ('a','B'):3, ('b','A'):1, ('b','B'):8, ('c','A'):5, ('c','B'):2})
+        >>> b = Vec({'a','b','c'}, {'a':1, 'b':-1,'c':1})
+        >>> w = Vec({'A','B'}, {'A':1, 'B':-2})
+        >>> sigma = .1
+        >>> gradient_descent_step(A, b, w, sigma) == Vec({'B', 'A'},{'B': 27.0, 'A': -5.0})
+        True
     '''
-    pass
+    return w - (sigma * find_grad(A, b, w))
 
+## Ungraded task ##
+def gradient_descent(A, b, w, sigma, T):
+    '''
+    Input:
+        - A: feature Mat
+        - b: diagnoses Vec
+        - w: hypothesis Vec
+        - sigma: step size
+        - T: number of iterations to run
+    Output: hypothesis vector obtained after T iterations of gradient descent.
+    '''
+    for x in range(T):
+        if x % 30 == 0:
+            print("Loss function: ", loss(A, b, w))
+            print("Fraction wrong for w:", find_grad(A, b, w))
+        w = gradient_descent_step(A, b, w, sigma)
+    return w

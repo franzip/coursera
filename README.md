@@ -13,7 +13,7 @@
 <hr>
 <div id="#courses">
 	<ul>
-		<li><a href="https://www.coursera.org/course/matrix" target="_blank">Coding the Matrix: Linear Algebra through Computer Science Applications</a> - <i> Brown University / Summer 2013 </i></li>
+		<li><a href="https://www.coursera.org/course/matrix" target="_blank">Coding the Matrix: Linear Algebra through Computer Science Applications</a> - <i> Brown University / 2015 </i></li>
 		<li><a href="https://www.coursera.org/course/interactivepython" target="_blank">An Introduction to Interactive Programming in Python</a> - <i>Rice University / Fall 2013</i>
 		</li>
 		<li><a href="https://www.coursera.org/course/webapplications" target="_blank">Web Application Architectures</a> - <i>University of New Mexico / Spring 2014</i>

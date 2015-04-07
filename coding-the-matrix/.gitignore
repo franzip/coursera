@@ -1,10 +1,13 @@
+# Created by https://www.gitignore.io
 
-<!-- saved from url=(0035)https://www.gitignore.io/api/python -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;"># Created by https://www.gitignore.io
+coursera_submit.py
+.python-version
+profile.txt
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+/**/__pycache__/
 *.py[cod]
 
 # C extensions
@@ -57,5 +60,3 @@ docs/_build/
 
 # PyBuilder
 target/
-
-</pre></body></html>
